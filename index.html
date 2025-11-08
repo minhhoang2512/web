@@ -223,6 +223,15 @@
             0%, 100% { transform: scale(1); }
             50% { transform: scale(1.12); }
         }
+
+        .hidden-link {
+            color: inherit;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        .hidden-link:hover {
+            text-decoration: underline;
+        }
     </style>
 </head>
 
@@ -341,7 +350,11 @@
 
     <footer>
         <i>"Wishing you happiness and strength on the journey ahead, may you always keep your smile and faith in the good things, wherever you go."</i>
-        <p>My little princess</p>
+        <p>
+            <a href="https://your-secret-link.com" class="hidden-link" target="_blank" rel="noopener">
+            My little princess
+            </a>
+        </p>
     </footer>
 
 </body>
