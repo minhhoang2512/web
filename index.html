@@ -1,3 +1,114 @@
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tạm Biệt</title>
+    <style>
+        * { margin: 0; padding: 0; }
+        body, html {
+            height: 100%;
+            overflow: hidden;
+            background: #000;
+        }
+
+        video {
+            position: fixed;
+            top: 50%; left: 50%;
+            min-width: 100%; min-height: 100%;
+            width: auto; height: auto;
+            transform: translateX(-50%) translateY(-50%);
+            z-index: -1;
+            object-fit: cover;
+        }
+
+        .overlay {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.45);
+            z-index: 1;
+        }
+
+        .content {
+            position: absolute;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: white;
+            z-index: 10;
+            width: 90%;
+        }
+
+        .goodbye {
+            font-size: 110px;
+            font-weight: bold;
+            letter-spacing: 12px;
+            text-shadow: 0 0 30px rgba(255,255,255,0.8);
+            margin-bottom: 25px;
+            font-family: 'Times New Roman', serif;
+        }
+
+        .subtext {
+            font-size: 30px;
+            opacity: 0.9;
+            font-style: italic;
+            letter-spacing: 4px;
+            font-family: Georgia, serif;
+        }
+
+        @media (max-width: 768px) {
+            .goodbye { font-size: 65px; letter-spacing: 6px; }
+            .subtext { font-size: 21px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- VIDEO của bạn -->
+    <video autoplay muted loop playsinline id="bgVideo" preload="auto">
+        <source src="https://raw.githubusercontent.com/minhhoang2512/image/refs/heads/main/856282-hd_1920_1080_25fps.mp4" type="video/mp4">
+        Trình duyệt không hỗ trợ video.
+    </video>
+
+    <!-- NHẠC "Miss" - IU Đâu (bản buồn) -->
+    <audio autoplay loop id="bgAudio" preload="auto">
+        <source src="https://raw.githubusercontent.com/minhhoang2512/image/refs/heads/main/miss_iu_dau.mp3" type="audio/mp3">
+        Trình duyệt không hỗ trợ âm thanh.
+    </audio>
+
+    <div class="overlay"></div>
+
+    <div class="content">
+        <div class="goodbye">TẠM BIỆT</div>
+        <div class="subtext">chúng ta vẫn là chúng ta...</div>
+    </div>
+
+    <!-- Đảm bảo âm thanh + video chạy ngay cả trên mobile -->
+    <script>
+        const video = document.getElementById('bgVideo');
+        const audio = document.getElementById('bgAudio');
+
+        // Điều chỉnh âm lượng nhạc vừa đủ cảm xúc
+        audio.volume = 0.5;
+
+        // Tự động phát khi load xong
+        window.addEventListener('load', () => {
+            video.play().catch(() => {});
+            audio.play().catch(() => {});
+        });
+
+        // Bấm 1 lần bất kỳ để mở khóa âm thanh trên mobile/Chrome
+        document.body.addEventListener('click', () => {
+            video.play();
+            audio.play();
+        }, { once: true });
+    </script>
+
+</body>
+</html>
+<!--
 <!DOCTYPE html>
 <html lang="vi">
 <head>
@@ -455,6 +566,7 @@
   });
   // ĐÃ XÓA: Không còn listener click toàn trang để "unlock" nữa
 </script>
--->
+------------------
 </body>
 </html>
+-->
